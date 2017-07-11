@@ -1,0 +1,47 @@
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="/menu1.zul"?>
+<zk >
+	<div self="@define(conteudo)" >
+	<grid >
+		
+		<rows>
+					<row>
+			<cell><label style="font-size:20px">Avaliação Do docente pelo estudante</label></cell>
+			
+			</row>
+			</rows>
+			</grid>
+
+	(1) Discordo Completamente(2) Discordo em serta medida(3) Neutro(4) Concordo(5) Concordo Plenamente	
+		<window>
+			<vbox>
+				
+<listbox width="300px" height="100px" rows="5" mold="paging"  emptyMessage="Nao ha Questoes cadastradas." pageSize="5"
+                 model="@bind(vm.listaFret)"> 
+            <listhead>
+                <listheader>Codigo</listheader>
+                <listheader>Descrição</listheader>
+                <listheader>Codigo</listheader>
+                <listheader>Descrição </listheader>
+               
+            </listhead>
+            <template name="model">
+                <listitem>
+                    <listcell label=""> </listcell>
+                                        <listcell label=""></listcell>
+                                        <listcell label=""> </listcell>
+                                        <listcell label=""> </listcell>
+                                        <listcell label=""> </listcell>
+
+                </listitem>
+            </template>
+        </listbox>
+        <radiogroup onCheck="choice.value = self.selectedItem.label">
+                                                    
+	</radiogroup>		
+		
+			
+				
+				</vbox>
+				</window>
+				</div>
+</zk>

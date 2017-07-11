@@ -1,0 +1,76 @@
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="/menu.zul"?>
+<?link rel="stylesheet" type="text/css"
+    href="/bootstrap/v3/css/bootstrap.css" ?>
+    <?link rel="stylesheet" type="text/css" href="/css/style.css"?>
+    
+<zk>
+  <script src="/bootstrap/zk/js/Button-bs.js"></script>
+        <script src="/bootstrap/zk/js/panel-bs.js"></script>  
+    
+    <div  self="@define(conteudo)"  apply="org.zkoss.bind.BindComposer" viewModel= "@id('vm') @init('controlpg.Controlpg')">
+
+        <window apply="controlpg.Controlpg" >
+            <listbox sclass="form-control" width="1340px" height="400px" rows="5" mold="paging" emptyMessage="Nao ha Questoes cadastradas." pageSize="7"
+                     model="@bind(vm.listaParamAutoAval)"> 
+                <listhead >
+                    <listheader>Codigo</listheader>
+                    <listheader>Questao</listheader>
+                    
+                    <listheader>Codigo</listheader>
+                    <listheader>Parametro</listheader>
+                    <listheader>Quantidade</listheader>
+                    
+                </listhead>
+                <template name="model" sclass="panel-success">
+                    <listitem>
+    
+                        <listcell label="@load(each.idquestaoautoavaliacao.codigo)"></listcell>
+         
+                        <listcell label="@load(each.idquestaoautoavaliacao.descricao)"></listcell>
+                  
+                        <listcell label="@load(each.codigo)"></listcell>
+          
+                        <listcell label="@load(each.descricao)"></listcell>
+                        <listcell>
+                        <textbox forward="onChange=onGuardar" constraint="/[0-9]+/:valor invalido digite um numero" > </textbox>
+                        </listcell>
+       
+                    </listitem>
+                </template>
+           
+            </listbox>
+            <div apply="controlpg.parametroauto">
+                <grid>
+                    <columns>
+                        <column label=""/>
+                        <column label=""/>
+                    </columns>
+                    <rows>
+                         
+                           	
+                            
+                        
+                        <row>
+                            <cell>
+                                Data:
+                                <datebox   id="ano"></datebox>
+                            </cell>	
+                            <cell>
+                                Observacao:
+                                <textbox rows="5" width="300px" id="observacaoAuto"></textbox>
+                            </cell>
+                             
+                            
+                        </row>
+                    </rows>
+                </grid>
+                <button sclass="btn-primary" label="Avaliar" tooltiptext=" avaliar" id="addobser"  width="200px"> </button>
+               
+            </div>
+        </window>
+    </div>
+
+
+   
+
+</zk>

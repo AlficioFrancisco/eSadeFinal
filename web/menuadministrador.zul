@@ -1,0 +1,161 @@
+<?page title="e-SADE" contentType="text/html;charset=UTF-8"?>
+<?link 
+    rel="stylesheet" type="text/css"
+    href="/bootstrap/v3/css/bootstrap.css" ?>
+<?link rel="stylesheet" type="text/css" href="/css/style.css"?>
+<zk xmlns="http://www.zkoss.org/2005/zul">
+    <script src="/bootstrap/zk/js/Button-bs.js"></script>
+    <script src="/bootstrap/zk/js/panel-bs.js"></script>
+     
+    <style>
+        .banner{
+        background-color:#D1e2ec;
+        color:#191970;
+        padding:5px 10px;
+        }
+
+    </style>
+    <borderlayout>
+    
+        <north height="110px" class="banner">
+
+            <div>
+                <div align="right">
+                    <a style="font-size:10px" href="index.zul" >Sair</a>
+                </div>
+                 <div  align="right">
+                        <a style="font-size:10px"  >Utilizador</a>             
+                                </div>
+                <hbox align="center">
+                    <a>
+                        <image src="esade.PNG"></image>
+                    </a> 
+                    <div>
+                        <label style="font-size:30px">Sistema de Avaliacao de Desempenho </label>
+                    </div>
+                </hbox>
+            </div> 
+        </north>
+
+        <west width="360px" minsize="300" splittable="true" collapsible="true">
+        
+            <hlayout width="100%">
+                <tree id="tree" width="400px" rows="8" height="700px" >
+                    <treecols sizable="true">
+                        <treecol label="Name" />
+                    
+                    </treecols>
+                    <treechildren>
+                        <treeitem>
+                            <treerow>
+                                <treecell label="UTILIZADOR"  />
+                           
+                            </treerow>
+                            <treechildren>
+                                <treeitem>
+                                    <treerow>
+                                        <treecell >
+                                            <a href="listaDocente.zul">Professor</a>
+                                        </treecell>
+                                    </treerow>
+                                
+                                </treeitem>
+                                <treeitem>
+                                    <treerow>
+                                        <treecell >
+                                            <a href="listaEstudante.zul">Estudante</a>
+                                        </treecell>
+                                    </treerow>
+                                
+                                </treeitem>
+                                <treeitem>
+                                    <treerow>
+                                        <treecell >
+                                            <a href="listaGrupo.zul">Grupo de utilizador </a>
+                                        </treecell>
+                                    </treerow>
+                                
+                                </treeitem>
+                                <treeitem>
+                                    <treerow>
+                                        <treecell >
+                                            <a href="listaUser.zul">
+                                                Utilizador </a>
+                                        </treecell>
+                                    </treerow>
+                                
+                                </treeitem>
+                            </treechildren>
+                        </treeitem>
+                        <treeitem>
+                            <treerow>
+                                <treecell label="QUESTAO" />
+                           
+                            </treerow>
+                            <treechildren>
+                                <treeitem>
+                                    <treerow>
+                                        <treecell >
+                                            <a href="listaQuestaoAuto.zul">
+                                                questao para auto avaliacao </a>
+                                        </treecell>
+                                    </treerow>
+                                
+                                </treeitem>
+                                <treeitem>
+                                    <treerow>
+                                        <treecell >
+                                            <a href="listaParametroAuto.zul" >parametro para auto avaliacao</a>
+                                        </treecell>
+                                    </treerow>
+                                </treeitem>
+                                <treeitem>
+                                    <treerow>
+                                        <treecell  >
+                                            <a href="listaQuestaoEstudante.zul">questao avaliacao docente pelo estudante </a> 
+                                        </treecell>
+                                    
+                                    </treerow>
+                                
+                                </treeitem>
+                                <treeitem>
+                                    <treerow>
+                                        <treecell >
+                                            <a href="listaparametroEstudante.zul">parametro para avaliacao  pelo estudante</a >
+                                        </treecell>
+                                    
+                                    </treerow>
+                                
+                                </treeitem>
+                                <treeitem>
+                                    <treerow>
+                                        <treecell >
+                                            <a href="listaCarateristicaSuperior.zul">caracteristica para avaliacao  pelo superior Hierarquico</a>
+                                        </treecell>
+                                    
+                                    </treerow>  
+                                </treeitem>
+                                <treeitem>
+                                    <treerow>
+                                        <treecell >
+                                            <a href="listaQuestaoSuperior.zul"> parametro para avaliacao  pelo superior Hierarquico</a>
+                                        </treecell>
+                                    
+                                    </treerow>
+                                
+                                </treeitem>
+                            
+                            </treechildren>
+                        </treeitem>
+                        <treeitem label="RELATORIO" />
+                    </treechildren>
+                </tree>
+            </hlayout>
+      
+        </west>
+        <center self="@insert(conteudo)">
+         
+        </center>
+    
+    </borderlayout>
+</zk>

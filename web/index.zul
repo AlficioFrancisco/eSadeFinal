@@ -1,0 +1,92 @@
+
+<?link rel="stylesheet" type="text/css"
+    href="/bootstrap/v3/css/bootstrap.css" ?>
+    <?link rel="stylesheet" type="text/css" href="/estilo/style.css"?>
+    <?page title="e-SADE index.zul" ?>
+<?init class="org.zkoss.zk.ui.util.Composition" ?>
+<zk  xmlns:w="client" xmlns:n="native">
+    <script src="/bootstrap/zk/js/Button-bs.js"></script>
+        <script src="/bootstrap/zk/js/panel-bs.js"></script>
+<style>
+
+.banner{
+background-color:#D1e2ec;
+color:#191970;
+padding:5px 10px;
+}
+
+
+
+</style>
+<borderlayout>
+
+<north height="100px" class="banner">
+<div>
+<hbox align="center">
+<a>
+
+<image src="/logo.PNG" height="90px"></image>
+</a>
+<div>
+<label style="font-size:30px">Sistema de Avaliação de Desempenho</label>
+</div>
+
+</hbox>
+</div>
+</north>
+<center>
+<hbox  vflex="1" hflex="1" align="center"
+        pack="center" spacing="20px">
+        <vlayout>
+            <window id="loginWin"
+               apply="controlpg.login"
+                title="AUTENTICAÇÃO" border="normal" hflex="min">
+                <vbox hflex="min" align="center">
+                    <grid hflex="min">
+                        <columns>
+                            <column hflex="min" align="right" />
+                            <column />
+                        </columns>
+                        <rows>
+                            <row>
+                                Utilizador :
+                                 <textbox sclass="form-control" height="38px" placeholder="Utilizador"
+                            id="account"/>
+                            </row>
+                            <row>
+                                Password :
+                                <textbox sclass="form-control" height="38px" type="password" placeholder="Senha"
+                            id="password"/>
+                            </row>
+                        </rows>
+                    </grid>
+                    
+                    <div sclass="col-lg-12">
+                        <button type="button" sclass="btn-primary"  width="300px" hflex="1" vflex="1" id="login">
+                          Entrar  
+                        </button>
+                   </div>
+                     
+                </vbox>
+            </window>
+            
+           <a >Esqueci minha password</a>
+          
+        </vlayout>
+    </hbox>
+    </center>
+
+<south height="100px" hflex="1" class="banner">
+<div align="center">
+<vbox align="center">
+Sistema de Avaliação de Desempenho versão 1.0 
+<a href="">fe.unilurio.ac.mz</a>
+</vbox>
+
+</div>
+</south>
+</borderlayout>
+
+       
+             
+</zk>

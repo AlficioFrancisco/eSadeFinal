@@ -1,0 +1,62 @@
+<?page title="e-Sade" ?>
+
+
+<zk>
+    <style>
+.banner{
+background-color:#D1e2ec;
+color:#191970;
+padding:5px 10px;
+}
+
+</style>
+    <borderlayout>
+        <north height="110px" sclass="banner">
+            <div>
+                <div align="right">
+     <a style="font-size:10px" href="index.zul" >Sair</a>
+ </div>
+  <div  align="right">
+                        <a style="font-size:10px"  >Utilizador</a>             
+                                </div>
+                <hbox align="center">
+                    <a>
+                        <image src="esade.PNG"></image>
+                    </a> 
+                    <div>
+                        <label style="font-size:30px">Sistema de Avaliacao de Desempenho </label>
+                    </div>
+                </hbox>
+            </div> 
+        </north>
+        <west width="260px" splittable="true" minsize="300" collapsible="true">
+          <grid>
+		<columns>
+                    <column label="" width="36px"></column>
+			<column label=""/>
+		</columns>
+		<rows>
+			<row>
+                            <image src="lista.png" height="32px" ></image>
+                            <a href="listaautoavaliaco.zul">lista de autoavaliacao</a>	
+			</row>
+                        <row>
+                            <image src="lista.png" height="32px"></image>
+                            <a>lista de avaliacao pelo estudante</a>	
+			</row>
+                        <row>
+                            <image src="lista.png" height="32px"></image>
+                            <a>lista de avaliacao pelo superior hierarquico</a>	
+			</row>
+		</rows>
+	</grid> 
+        </west>
+        <center self="@insert(conteudo)">
+             
+        </center>
+        
+    </borderlayout>
+
+
+</zk>
+ 

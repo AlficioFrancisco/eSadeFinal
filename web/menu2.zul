@@ -1,0 +1,81 @@
+<?page title="menu" contentType="text/html;charset=UTF-8"?>
+<?link rel="stylesheet" type="text/css"
+    href="/bootstrap/v3/css/bootstrap.css" ?>
+    <?link rel="stylesheet" type="text/css" href="/css/style.css"?>
+<zk>
+     <script src="/bootstrap/zk/js/Button-bs.js"></script>
+        <script src="/bootstrap/zk/js/panel-bs.js"></script>
+    
+    <style>
+        .banner{
+        background-color:#D1e2ec;
+        color:#191970;
+        padding:5px 10px;
+        }
+
+    </style>
+
+    <borderlayout>
+
+        <north height="110px" class="banner">
+        <div>
+            <div align="right">
+     <a style="font-size:10px" href="index.zul" >Sair</a>
+ </div>
+  <div  align="right">
+                        <a style="font-size:10px"  >Utilizador</a>             
+                                </div>
+                <hbox align="center">
+                    <a>
+                        <image src="esade.PNG"></image>
+                    </a> 
+                    <div>
+                        <label style="font-size:30px">Sistema de Avaliacao de Desempenho </label>
+                    </div>
+                </hbox>
+            </div> 
+
+        </north>
+        <west>
+    
+            <div height="200px" apply="org.zkoss.bind.BindComposer" viewModel= "@id('vm') @init('controlpg.Controlpg')">   
+                <window title="Lista de Professors" border="normal" height="700px">
+                    <hbox>
+                        Pesquisar:
+                        <textbox id="searchArea" width="200px"  class="form-control"  placeholder="Pesquisar Professor..."/>
+                    </hbox>   
+                    <listbox width="300px" height="400px" rows="5" mold="paging"  emptyMessage="Nao ha Professor cadastradas." pageSize="5"
+                             model="@bind(vm.listadocente)" id="box" multiple="true"  > 
+                        <listhead>
+                            <listheader>Nome Do Docente</listheader>
+
+               
+                        </listhead>
+                        <template name="model">
+                            <listitem>
+                    
+                                <listcell label="@load(each.nome)"></listcell>
+                                        
+                            </listitem>
+                        </template>
+                    </listbox>
+                    <button sclass="btn-info" width="300px" label="VALIDAR AVALIACAO" href="lateralmenu.zul">
+                        
+                    </button>
+                </window>
+            </div>
+
+        </west>
+
+
+
+        <center self="@insert(conteudo)" >
+
+        </center>
+
+
+    </borderlayout>
+
+
+</zk>
+ 

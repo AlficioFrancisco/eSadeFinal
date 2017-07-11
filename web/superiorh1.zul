@@ -1,0 +1,96 @@
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="/menu2.zul"?>
+<?link rel="stylesheet" type="text/css"
+    href="/bootstrap/v3/css/bootstrap.css" ?>
+    <?link rel="stylesheet" type="text/css" href="/css/style.css"?>
+<zk xmlns:w="client" xmlns:n="native">
+<script src="/bootstrap/zk/js/Button-bs.js"></script>
+    <script src="/bootstrap/zk/js/panel-bs.js"></script>
+    <div self="@define(conteudo)">
+        <grid >
+		
+            <rows>
+                <row>
+                    <cell>
+                        <label style="font-size:20px">Avaliação Do docente pelo superior Hierarquico</label>
+                    </cell>
+			
+                </row>
+            </rows>
+        </grid>
+
+
+		
+        (1) Nunca(2) Poucas vezes (3) Neutro (4) Muitas vezes (5) Sempre
+        <div apply="org.zkoss.bind.BindComposer" viewModel= "@id('vm') @init('controlpg.Controlpg')">	
+            <window >
+                <vbox>
+                    <radiogroup onCheck="choice.value = self.selectedItem.label">
+                        <listbox width="1000px" height="370px"  mold="paging"  emptyMessage="Nao ha questoes cadastrados." pageSize="4"  model="@bind(vm.listaparametrosuper)">
+
+                            <listhead>
+                                <listheader>Caracteristica</listheader>
+                                <listheader>Questao</listheader>
+                                 
+                                <listheader>1</listheader>
+                                <listheader>2</listheader>
+                                <listheader>3</listheader>
+                                <listheader>4</listheader>
+                                <listheader>5</listheader>
+                            </listhead>
+                            <template name="model"> 	
+                                <listitem>
+                                    <listcell label="@load(each.idcaracteristicaquestaosuperior.descricao)"></listcell>
+          
+                                    <listcell label="@load(each.descricao)"></listcell>
+                                    <listcell >
+                                        <radio></radio>
+                                    </listcell>
+                                    <listcell >
+                                        <radio></radio>
+                                    </listcell>
+                                    <listcell >
+                                        <radio></radio>
+                                    </listcell>
+                                    <listcell >
+                                        <radio></radio>
+                                    </listcell>
+                                    <listcell >
+                                        <radio></radio>
+                                    </listcell>
+                                </listitem>
+                            </template>
+                                        
+					
+                        </listbox>
+                    </radiogroup>
+                </vbox>
+                 <div>
+                <grid>
+                    <columns>
+                        <column label=""/>
+                        <column label=""/>
+                    </columns>
+                    <rows>
+                        <row>
+                            <cell>
+                                Ano:
+                                <datebox   id="ano"></datebox>
+                            </cell>
+                            <cell>
+                                Observacao:
+                                <textbox rows="5" width="300px"></textbox>
+                            </cell>	
+                            
+                        </row>
+                    </rows>
+                </grid>
+                <div>
+                <button type="button" width="300px" sclass="btn-primary" label=" avaliar"></button>
+                
+                </div>
+            </div>
+            </window>
+        </div>
+
+    </div>
+</zk>

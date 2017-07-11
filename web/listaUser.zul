@@ -1,0 +1,153 @@
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="/menuadministrador.zul" ?>
+<?link rel="stylesheet" type="text/css"
+    href="/bootstrap/v3/css/bootstrap.css" ?>
+    <?link rel="stylesheet" type="text/css" href="/css/style.css"?>
+<zk >
+   <script src="/bootstrap/zk/js/Button-bs.js"></script>
+        <script src="/bootstrap/zk/js/panel-bs.js"></script> 
+        
+    <div self="@define(conteudo)"  apply="org.zkoss.bind.BindComposer" viewModel= "@id('vm') @init('controlpg.Controlpg')">
+       
+    
+        <!--<window title="LISTA DE PARAMETROS PARA AUTO AVALIACAO" >-->
+        <button sclass="btn-info" label="Novo Utilizador" onClick="@command('winUser')"></button>
+        <listbox width="1000px" height="480px" rows="5" mold="paging"  emptyMessage="Nao ha Questoes cadastradas." pageSize="5"
+                 model="@bind(vm.listaUser)"> 
+            <listhead>
+                <listheader>Utilizador</listheader>
+                <listheader>Password</listheader>
+                <listheader>Nome Completo</listheader>
+                <listheader>Email</listheader>
+                
+                <listheader>Grupo</listheader>
+                <listheader>Professor</listheader>
+                <listheader>Editar</listheader>
+                <listheader>Remover</listheader>
+                    
+            </listhead>
+            <template name="model">
+                <listitem>
+    
+        
+               
+                    <listcell label="@load(each.utilizador)"></listcell>
+         
+                    <listcell label="@load(each.pasword)"></listcell>
+                  
+                    <listcell label="@load(each.nome)"></listcell>
+                    <listcell label="@load(each.email)"></listcell>  
+                    <listcell label="@load(each.idGrupo.idGrupo)"></listcell>
+                    <listcell label="@load(each.idprofessor.nome)"></listcell>
+          
+                    <listcell >
+                        <button  sclass="btn-danger" label="Remover"> </button>
+                             
+                    </listcell>
+           
+          
+                </listitem>
+            </template>
+           
+       
+        
+       
+   
+        </listbox>
+
+        <window id="winUser"   height="350px" width="500px"  title="CADASTRO DE UTILIZADORES"
+                position="center, center" closable="true" mode="modal" visible="false" 
+                onClose="self.visible=false;event.stopPropagation()" apply="controlpg.Autoavaliacao">
+            <vbox>
+                <radiogroup onCheck="choice.value = self.selectedItem.label" Id="rd">
+                    <grid ><!--viewModel= "@id('vm') @init('controlpg.Autoavaliacao')"-->
+                        <columns>
+                            <column label=""/>
+                            <column label=""/>
+                        </columns>
+                        <rows>
+                            <row>
+                                <cell>Utilizador </cell>
+                                <cell>
+                                    <div sclass="input-group">
+                                        <textbox sclass="form-control"  id="utilizador" />
+                                    </div>                       <!--id="codigo" value="@bind(vm.parametro.codigo)"/>-->
+                                </cell>	
+                            </row>
+                            <row>
+                            
+                                <cell>Password</cell>
+                                <cell>
+                                    <div sclass="input-group">
+                                    
+                                        <textbox sclass="form-control"  id="password"/> 
+                                    </div><!--id="descricao" value="@bind(vm.parametro.descricao)"/>-->
+                                </cell>	
+                            </row>
+                            <row>
+                            
+                                <cell>Nome Completo</cell>
+                                <cell>
+                                    <div sclass="input-group">
+                                    
+                                        <textbox sclass="form-control"  id="nome"/> 
+                                    </div><!--id="descricao" value="@bind(vm.parametro.descricao)"/>-->
+                                </cell>	
+                            </row>
+                            <row>
+                            
+                                <cell>E-mail</cell>
+                                <cell>
+                                    <div sclass="input-group">
+                                    
+                                        <textbox sclass="form-control"  id="email" /> 
+                                    </div><!--id="descricao" value="@bind(vm.parametro.descricao)"/>-->
+                                </cell>	
+                            </row>
+                           
+                            <row>
+                                <cell>Grupo</cell> 
+                                <cell>
+                                    <vlayout>
+                                        <div sclass="input-group">
+                                            <listbox width="100%" id="combogrup" mold="select" sclass="form-control">
+                                                <template name="model">
+                                                    <listitem label="${each.idGrupo}"/>
+                                                </template>
+                                            </listbox>
+                                        </div>
+                                    </vlayout>
+                                </cell>
+                            </row>
+                            <row>
+                                <cell> 
+                                   
+                                    Professor 
+                                </cell> 
+                                <cell>
+                                    <vlayout>
+                                        <div sclass="input-group">
+                                            <listbox width="100%" id="comboprofeso" mold="select" sclass="form-control">
+                                                <template name="model">
+                                                    <listitem label="${each.nome}"/>
+                                                </template>
+                                            </listbox>
+                                        </div>
+                                    </vlayout>
+                                </cell>
+                            
+                            </row>
+                       
+                        </rows>
+                    </grid>
+                </radiogroup>
+                <hlayout>
+                    <button  sclass="btn-primary" label="Gravar"  tooltiptext="Guardar novo usuario" id="adduser" > </button> <!--id="cadastrar" onClick="@command('gravaparametro')"-->
+                    
+                </hlayout>
+           
+            </vbox>
+            
+        </window>
+    </div>
+</zk>
+

@@ -1,0 +1,210 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Apr 7, 2016, 7:02:07 PM
+    Author     : Almerindo
+*/
+
+
+
+.banner {
+    height:150px; 
+    background-color:transparent;    
+  
+   
+    
+    
+    
+    
+    
+    
+}
+.menubar{
+    background-color:#337ab7; height:40px; color: white; 
+    
+    font-weight: bolder;
+
+
+}
+
+.btn-primarya {
+  color: #fff;
+  background-color: transparent;
+  border-color: transparent;
+}
+.btn-primarya:focus,
+.btn-primarya.focus {
+  color: #fff;
+  background-color: #286090;
+  border-color: #122b40;
+}
+.btn-primarya:hover {
+  color: #fff;
+  background-color: #286090;
+  border-color: #204d74;
+}
+.btn-primarya:active,
+.btn-primarya.active,
+.open > .dropdown-toggle.btn-primarya {
+  color: #fff;
+  background-color: #286090;
+  border-color: #204d74;
+}
+.btn-primarya:active:hover,
+.btn-primarya.active:hover,
+.open > .dropdown-toggle.btn-primarya:hover,
+.btn-primarya:active:focus,
+.btn-primarya.active:focus,
+.open > .dropdown-toggle.btn-primarya:focus,
+.btn-primarya:active.focus,
+.btn-primarya.active.focus,
+.open > .dropdown-toggle.btn-primarya.focus {
+  color: #fff;
+  background-color: #204d74;
+  border-color: #122b40;
+}
+.btn-primarya:active,
+.btn-primarya.active,
+.open > .dropdown-toggle.btn-primarya {
+  background-image: none;
+}
+.btn-primarya.disabled:hover,
+.btn-primarya[disabled]:hover,
+fieldset[disabled] .btn-primarya:hover,
+.btn-primarya.disabled:focus,
+.btn-primarya[disabled]:focus,
+fieldset[disabled] .btn-primarya:focus,
+.btn-primarya.disabled.focus,
+.btn-primarya[disabled].focus,
+fieldset[disabled] .btn-primarya.focus {
+  background-color: #337ab7;
+  border-color: #2e6da4;
+}
+.btn-primarya .badge {
+  color: #337ab7;
+  background-color: #fff;
+}
+.paginas{
+    background-color: whitesmoke;
+
+}
+.footer {
+    background-color: #222;
+    color: #c0c0c0;
+    height: 80px;
+    margin-bottom: 3px;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+   
+
+.titulo{
+    color:#000;
+    font-weight: bold;
+    font-size: 14px;
+    font-family: Tahoma;
+}
+
+.tituloi{
+    color:#000;
+    font-weight: bold;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+}
+
+.sub{
+    color:#000;
+    font-weight: bold;
+    font-size: 12px;
+    font-family: Tahoma;
+}
+
+
+
+.menu{
+    text-decoration: none; cursor: pointer;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    animation-name: IDENT;
+
+}
+
+.menu a,.menu a:VISITED {
+    color: #135474;
+    text-decoration: #269abc;
+
+}
+.side{
+    border-collapse: collapse;
+    animation-name: IDENT;
+    font-family: sans-serif;
+    text-decoration: none; cursor: pointer; 
+}
+
+
+
+.banner-head{
+    font-size: 2.4em;
+}
+.banner .logout{
+
+    cursor: pointer;
+
+} 
+
+.tabelas{
+    position:relative;
+    width: auto;
+    border-color: transparent;
+    alignment-adjust: central;
+    background-color: #135474;
+    overflow: visible;
+    
+}
+
+
+
+
+.infor{
+    color: #135474;
+    font-size: 19px;
+
+}
+.info a,.infor a:VISITED{
+    color: #135474;
+
+}
+
+.footer a,.footer a:VISITED {
+    color: white;	
+}
+
+
+.head1{
+    font-size: large;
+}
+.head2{
+    font-size: medium;
+}
+
+
+
+
+
+.selectedButton .z-button-cm {
+    font-weight: bold;
+}
+ 
+.chooser-popup div.z-popup-cl {
+    border: none;
+}
+ 
+.chooser-popup .z-popup-cnt {
+    padding: 0;
+}
+ 
+.chooser-popup .z-groupbox {
+    -moz-border-radius: 1px 1px 1px 1px;
+}
+

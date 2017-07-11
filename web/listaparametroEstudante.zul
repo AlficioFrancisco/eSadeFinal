@@ -1,0 +1,112 @@
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="/menuadministrador.zul" ?>
+<?link rel="stylesheet" type="text/css"
+    href="/bootstrap/v3/css/bootstrap.css" ?>
+    <?link rel="stylesheet" type="text/css" href="/css/style.css"?>
+<zk >
+  <script src="/bootstrap/zk/js/Button-bs.js"></script>
+        <script src="/bootstrap/zk/js/panel-bs.js"></script>  
+        
+    <div self="@define(conteudo)"  apply="org.zkoss.bind.BindComposer" viewModel= "@id('vm') @init('controlpg.Controlpg')">
+       
+    
+        <!--<window title="LISTA DE PARAMETROS PARA AUTO AVALIACAO" >-->
+           <button sclass="btn-info" label="Novo Parametro" onClick="@command('winparametroestudante')"></button>
+            <listbox width="1000px" height="480px" rows="5" mold="paging"  emptyMessage="Nao ha Parametros cadastradas." pageSize="5"
+                     model="@bind(vm.listaParametroestuda)"> 
+                <listhead>
+                    <listheader>Codigo</listheader>
+                    <listheader>Questao</listheader>
+                    
+                    <listheader>Codigo</listheader>
+                    <listheader>Parametro</listheader>
+                    <listheader>Editar</listheader>
+                    <listheader>Remover</listheader>
+                    
+                </listhead>
+                <template name="model">
+                    <listitem>
+    
+        
+               
+                        <listcell label="@load(each.idquestaodocenteestudante.codigo)"></listcell>
+         
+                        <listcell label="@load(each.idquestaodocenteestudante.descricao)"></listcell>
+                  
+                        <listcell label="@load(each.codigo)"></listcell>
+          
+                        <listcell label="@load(each.descricao)"></listcell>
+                        <listcell >
+                            <button  sclass="btn-warning" label="Editar"> </button>
+                             
+                        </listcell>
+                        <listcell >
+                            <button  sclass="btn-danger" label="Remover"> </button>
+                             
+                        </listcell>
+           
+          
+                    </listitem>
+                </template>
+           
+       
+        
+       
+   
+            </listbox>
+        
+    
+    
+    <window id="winparametroestudante"   height="250px" width="500px"  title="CADASTRO DE PARAMETROS"
+                position="center, center" closable="true" mode="modal" visible="false" 
+                onClose="self.visible=false;event.stopPropagation()" apply="controlpg.parametroestudante">
+        <vbox>
+            <grid ><!--viewModel= "@id('vm') @init('controlpg.Autoavaliacao')"-->
+                <columns>
+                    <column label=""/>
+                    <column label=""/>
+                </columns>
+                <rows>
+                    <row>
+                        <cell>Codigo </cell>
+                        <cell>
+                            <div sclass="input-group">
+                                <textbox sclass="form-control"  id="codigo" />
+                            </div>                       <!--id="codigo" value="@bind(vm.parametro.codigo)"/>-->
+                        </cell>	
+                    </row>
+                    <row>
+                            
+                        <cell>Descricao</cell>
+                        <cell>
+                            <div sclass="input-group">
+                                <textbox sclass="form-control"  id="descricao" rows="3"/> 
+                            </div><!--id="descricao" value="@bind(vm.parametro.descricao)"/>-->
+                        </cell>	
+                    </row>
+                    <row>
+                        <cell>Questao</cell> 
+                        <cell>
+                            <vlayout>
+                                <div sclass="input-group">
+                                    <listbox width="100%" id="comboquest" mold="select" sclass="form-control">
+                                        <template name="model">
+                                            <listitem label="${each.descricao}"/>
+                                        </template>
+                                    </listbox>
+                                </div>
+                            </vlayout>
+                        </cell>
+                    </row>
+                </rows>
+            </grid>
+               
+            
+                <button sclass="btn-primary" label="Gravar"  tooltiptext="Guardar novo parametro" id="addparameto" > </button> <!--id="cadastrar" onClick="@command('gravaparametro')"-->
+                
+
+           
+        </vbox>
+            
+    </window>
+    </div>
+</zk>

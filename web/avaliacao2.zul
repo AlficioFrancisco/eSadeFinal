@@ -1,0 +1,97 @@
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="/menu1.zul"?>
+<?link rel="stylesheet" type="text/css"
+    href="/bootstrap/v3/css/bootstrap.css" ?>
+    <?link rel="stylesheet" type="text/css" href="/css/style.css"?>
+<zk >
+     <script src="/bootstrap/zk/js/Button-bs.js"></script>
+        <script src="/bootstrap/zk/js/panel-bs.js"></script>
+        
+    <div self="@define(conteudo)" >
+        <grid >
+		
+            <rows>
+                <row>
+                    <cell>
+                        <label style="font-size:20px">Avaliação Do docente pelo estudante</label>
+                    </cell>
+			
+                </row>
+            </rows>
+        </grid>
+
+        (1) Discordo Completamente(2) Discordo em serta medida(3) Neutro(4) Concordo(5) Concordo Plenamente
+        <div apply="org.zkoss.bind.BindComposer" viewModel= "@id('vm') @init('controlpg.Controlpg')">	
+            <window >
+                <vbox>
+                    <radiogroup onCheck="choice.value = self.selectedItem.label">
+                         <listbox width="1000px" height="370px"  mold="paging"  emptyMessage="Nao ha questoes cadastrados." pageSize="4"  model="@bind(vm.listaparametro)">
+
+                             <listhead>
+                                 <listheader>Codigo</listheader>
+                                 <listheader>Descrição</listheader>
+                                 <listheader>Codigo</listheader>
+                                 <listheader>Descrição</listheader>
+                                 <listheader>1</listheader>
+                                 <listheader>2</listheader>
+                                 <listheader>3</listheader>
+                                 <listheader>4</listheader>
+                                 <listheader>5</listheader>
+                             </listhead>
+                              <template name="model"> 	
+                                  <listitem>
+                                    <listcell label="@load(each.idquestaodocenteestudante.codigo)"></listcell>
+         
+                                    <listcell label="@load(each.idquestaodocenteestudante.descricao)"></listcell>
+                  
+                                    <listcell label="@load(each.codigo)"></listcell>
+          
+                                    <listcell label="@load(each.descricao)"></listcell>
+                                    <listcell >
+                                        <radio forward="onClick=onRadio1"></radio>
+                                    </listcell>
+                                    <listcell >
+                                        <radio forward="onClick=onRadio2"></radio>
+                                    </listcell>
+                                    <listcell >
+                                        <radio forward="onClick=onRadio3"></radio>
+                                    </listcell>
+                                    <listcell >
+                                        <radio forward="onClick=onRadio4"></radio>
+                                    </listcell>
+                                    <listcell >
+                                        <radio forward="onClick=onRadio5"></radio>
+                                    </listcell>
+                                    </listitem>
+                                    </template>
+                                        
+					
+                        </listbox>
+                    </radiogroup>
+                </vbox>
+                <div>
+                <grid>
+                    <columns>
+                        <column label=""/>
+                        <column label=""/>
+                    </columns>
+                    <rows>
+                        <row>
+                            <cell>
+                                Data:
+                                <datebox   id="ano"></datebox>
+                            </cell>
+                            <cell>
+                                Observacao:
+                                <textbox rows="5" width="300px"></textbox>
+                            </cell>	
+                            
+                        </row>
+                    </rows>
+                </grid>
+                <button sclass="btn-primary" label="Auto avaliar" width="200px"></button>
+               
+            </div>
+            </window>
+        </div>
+    </div>
+</zk>

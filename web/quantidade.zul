@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul">
+    <window apply="controlpg.ProfileCreateUsersController">
+        <div  >
+        <textbox  forward="onChange=onEdit" > </textbox>
+        </div>
+    </window>
+
+</zk>

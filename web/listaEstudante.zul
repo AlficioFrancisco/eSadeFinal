@@ -1,0 +1,125 @@
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="/menuadministrador.zul" ?>
+
+<?link rel="stylesheet" type="text/css"
+    href="/bootstrap/v3/css/bootstrap.css" ?>
+    <?link rel="stylesheet" type="text/css" href="/css/style.css"?>
+<zk >
+    <script src="/bootstrap/zk/js/Button-bs.js"></script>
+        <script src="/bootstrap/zk/js/panel-bs.js"></script>
+        
+    <div self="@define(conteudo)"  apply="org.zkoss.bind.BindComposer" viewModel= "@id('vm') @init('controlpg.Controlpg')">
+       
+    
+        <!--<window title="LISTA DE PARAMETROS PARA AUTO AVALIACAO" >-->
+        <button sclass="btn-info" label="Novo Estudante" onClick="@command('winestuda')"></button>
+        <listbox width="1000px" height="500px"  mold="paging"  emptyMessage="Nao ha Questoes cadastradas." pageSize="10"
+                     model="@bind(vm.listaEstudante)"> 
+            <listhead>
+                <listheader>Estudante</listheader>
+                <listheader>Numero Do Estudante</listheader>
+                <listheader>Email</listheader>
+                <listheader>Curso</listheader>
+                <listheader>Editar</listheader>
+                <listheader>Remover</listheader>
+                    
+            </listhead>
+            <template name="model">
+                <listitem>
+    
+        
+                  
+                    <listcell label="@load(each.nome)"></listcell>
+          
+                    <listcell label="@load(each.numeroestudante)"></listcell>
+                    <listcell label="@load(each.email)"></listcell>
+          
+                    <listcell label="@load(each.idcurso.descricao)"></listcell>
+                    <listcell >
+                        <button sclass="btn-warning" label="Editar"> </button>
+                             
+                    </listcell>
+                    <listcell >
+                        <button  sclass="btn-danger" label="Remover"> </button>
+                             
+                    </listcell>
+           
+          
+                </listitem>
+            </template>
+           
+       
+        
+       
+   
+        </listbox>
+        
+    
+    
+        <window id="winestuda"   height="330px" width="500px"  title="CADASTRO DO ESTUDANTE"
+                position="center, center" closable="true" mode="modal" visible="false" 
+                onClose="self.visible=false;event.stopPropagation()" apply="controlpg.parametroauto">
+            <vbox>
+                <grid ><!--viewModel= "@id('vm') @init('controlpg.Autoavaliacao')"-->
+                    <columns>
+                        <column label=""/>
+                        <column label=""/>
+                    </columns>
+                    <rows>
+                        <row>
+                            <cell>Nome do Estudante </cell>
+                            <cell>
+                                <div sclass="input-group">
+                                    <textbox sclass="form-control"  id="nome" />
+                                </div>                       <!--id="codigo" value="@bind(vm.parametro.codigo)"/>-->
+                            </cell>	
+                        </row>
+                        <row>
+                            
+                            <cell>Numero Do Estudante</cell>
+                            <cell>
+                                <div sclass="input-group">
+                                    <textbox sclass="form-control"  id="numeroestudante" rows="3"/> 
+                                </div><!--id="descricao" value="@bind(vm.parametro.descricao)"/>-->
+                            </cell>	
+                        </row>
+                         <row>
+                            
+                            <cell>Email</cell>
+                            <cell>
+                                <div sclass="input-group">
+                                    <textbox sclass="form-control"  id="email" rows="3"/> 
+                                </div><!--id="descricao" value="@bind(vm.parametro.descricao)"/>-->
+                            </cell>	
+                        </row>
+                        <row>
+                        <cell>Curso</cell> 
+                        <cell>
+                            <vlayout>
+                                <div sclass="input-group">
+                                    <listbox width="100%" id="combocurso" mold="select" sclass="form-control">
+                                        <template name="model">
+                                            <listitem label="${each.descricao}"/>
+                                        </template>
+                                    </listbox>
+                                </div>
+                            </vlayout>
+                        </cell>
+                    </row>
+  
+                    </rows>
+                </grid>
+                <hlayout>
+            
+                <button sclass="btn-primary"  label="Guardar" tooltiptext="Guardar" id="addestuda"> </button>
+                 <button sclass="btn-warning"  label="Editar" tooltiptext="Guardar" id="editestuda"> </button> <!--id="cadastrar" onClick="@command('gravaparametro')"-->
+                </hlayout>
+
+           
+            </vbox>
+            
+        </window>
+    </div>
+</zk>
+
+
+

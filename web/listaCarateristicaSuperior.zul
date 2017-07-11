@@ -1,0 +1,100 @@
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="/menuadministrador.zul" ?>
+<?link rel="stylesheet" type="text/css"
+    href="/bootstrap/v3/css/bootstrap.css" ?>
+    <?link rel="stylesheet" type="text/css" href="/css/style.css"?>
+<zk >
+   <script src="/bootstrap/zk/js/Button-bs.js"></script>
+        <script src="/bootstrap/zk/js/panel-bs.js"></script> 
+        
+    <div self="@define(conteudo)"  apply="org.zkoss.bind.BindComposer" viewModel= "@id('vm') @init('controlpg.Controlpg')">
+       
+    
+        <!--<window title="LISTA DE PARAMETROS PARA AUTO AVALIACAO" >-->
+        <button sclass="btn-info" label="Nova Questao" onClick="@command('wincaracterist')"></button>
+        <listbox width="1000px" height="500px"  mold="paging"  emptyMessage="Nao ha Questoes cadastradas." pageSize="9"
+                     model="@bind(vm.listacaracteristic)"> 
+            <listhead>
+                
+                <listheader>Caracteristicas</listheader>
+                <listheader>Editar</listheader>
+                <listheader>Remover</listheader>
+                    
+            </listhead>
+            <template name="model">
+                <listitem>
+    
+        
+                  
+                    
+          
+                    <listcell label="@load(each.descricao)"></listcell>
+                    <listcell >
+                        <button sclass="btn-warning" label="Editar"> </button>
+                             
+                    </listcell>
+                    <listcell >
+                        <button  sclass="btn-danger" label="Remover"> </button>
+                             
+                    </listcell>
+           
+          
+                </listitem>
+            </template>
+           
+       
+        
+       
+   
+        </listbox>
+        
+    
+    
+        <window id="wincaracterist"   height="200px" width="500px"  title="CADASTRO DE QUESTOES PARA AUTO AVALIACAO"
+                position="center, center" closable="true" mode="modal" visible="false" 
+                onClose="self.visible=false;event.stopPropagation()" apply="controlpg.Caracteristica">
+            <vbox>
+                <grid ><!--viewModel= "@id('vm') @init('controlpg.Autoavaliacao')"-->
+                    <columns>
+                        <column label=""/>
+                        <column label=""/>
+                    </columns>
+                    <rows>
+                        
+                        <row>
+                            
+                           <cell>Caracteristica</cell>
+                            <cell>
+                                <div class="input-group">
+                                   
+                                    <textbox sclass="form-control" id="descricao" rows="5" width="200px" xmlns:w="client" >
+                                        <attribute w:name="doKeyPress_">
+                                            function(evt){
+                                            if(this.getValue().length > 0 ){
+                                            if (!this._shallIgnore(evt, "0123456789"))
+                                            this.$doKeyPress_(evt);
+                                            }else{
+                                            if (!this._shallIgnore(evt, "QWERTYUIOPLKJHGFDSAZXCVBNMqwertyuioplkjhgfdsazxcvbnm"))
+                                            this.$doKeyPress_(evt);
+                                            }
+                                            }
+                                        </attribute>
+                                    </textbox>
+                                </div>
+                            </cell>		
+                        </row>
+                    
+                    </rows>
+                </grid>
+               
+            
+                <button sclass="btn-primary"  label="Guardar" tooltiptext="Guardar" id="addcaracte"> </button> <!--id="cadastrar" onClick="@command('gravaparametro')"-->
+                
+
+           
+            </vbox>
+            
+        </window>
+    </div>
+</zk>
+
+
